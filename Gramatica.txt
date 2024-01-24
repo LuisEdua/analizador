@@ -1,0 +1,36 @@
+S --> F NF C
+NF --> M | ID
+F --> func
+M --> main
+ID --> L (L | N | _)*
+L --> [a...zA...Z]
+N --> [0...9]
+C --> (P?) CONT
+CONT --> { CO* }
+P --> ID RP*
+RP --> , ID
+CO --> LF | I | PR | CON | DV | OP
+CON --> IF ELSE?
+ELSE --> else CONT
+IF --> if(E RE*) CONT 
+E --> EV SI EV | LF
+RE --> or E | and E
+EV --> TE | ID | NU
+SI --> == | <= | >= | !=
+LF --> NF (P?)
+I --> in >> ID
+PR --> print (D RD*) | println (D RD*)
+D --> ID | TE
+TE --> COM T* COM
+RD --> + D
+COM --> "
+T --> L+ | NU | ,
+DV --> P = V
+V --> VA RV*
+NU --> N+ (. N+)?
+VA --> ID | TE | NU | true | false
+RV --> , VA
+WH --> while (E RE)
+OP --> OPV OPR OPV
+OPR --> + | - | / | *
+OPV --> ID | NU
