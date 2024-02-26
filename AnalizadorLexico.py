@@ -6,28 +6,39 @@ def analizador_lexico(input_string):
         'MAIN': r'main',
         'IF': r'if',
         'ELSE': r'else',
-        'IN': r'in|>>',
+        'IN': r'in',
+        "INASSIGN": r'>>',
         'PRINT': r'println|print',
         'WHILE': r'while',
         'BOL': r'true|false',
-        'OR': r'or',
-        'AND': r'and',
-        'ID': r'[a-zA-Z]([a-zA-Z0-9_])*', # hola, a, a_2
-        'NUMBER': r'\d+(\.\d+)?', #9, 9.7, 55, 10.52
-        'STRING': r'\".*?\"', # "", "lkjsdlkjs", "hola mundo", "Jodjsja@madñk"
-        'OPERATOR': r'\+|\-|\/|\*',#no poner \
+        'AGGREGATECONDITION': r'or|and',
+        'ID': r'[a-zA-Z]([a-zA-Z0-9_])*',
+        'NUMBER': r'\d+(\.\d+)?',
+        'STRING': r'\".*?\"',
+        'OPERATOR': r'\+|\-|\/|\*',
         'COMPARE': r'==|<=|>=|!=|>|<',
-        'SYMBOL': r'\,|\;|\{|\}|\(|\)|\[|\]|_', #no poner \
+        'COMMA': r',',
+        "LLAVEA": r'\{',
+        "LLAVEC": r'\}',
+        "PARENTESISA": r'\(',
+        "PARENTESISC": r'\)',
+        "CORCHETEA": r'\[',
+        "CORCHETEC": r'\]',
         'ASSIGN': r'=',
         'UNKNOWN': r'\S+'
     }
 
     token_regex = '|'.join(f'(?P<{name}>{regex})' for name, regex in tokens.items())
 
-    output = []
-    for match in re.finditer(token_regex, input_string):
-        token_type = match.lastgroup
-        lexeme = match.group()
-        output.append(f'{token_type}: {lexeme}')
-
-    return '\n'.join(output)
+    line_number = 1
+    tokens_with_lines = []
+    lines = input_string.split('\n')
+    
+    for line in lines:
+        for match in re.finditer(token_regex, line):
+            token_type = match.lastgroup
+            lexeme = match.group()
+            tokens_with_lines.append([token_type, lexeme, line_number])
+        line_number += 1
+    
+    return tokens_with_lines

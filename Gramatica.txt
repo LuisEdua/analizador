@@ -1,4 +1,5 @@
-S --> F NF C
+S --> FS
+FS --> F NF C | ε
 NF --> M | ID
 F --> func
 M --> main
@@ -7,9 +8,9 @@ L --> [a...zA...Z]
 N --> [0...9]
 C --> (P?) CONT
 CONT --> { CO* }
-P --> ID RP*
-RP --> , ID
-CO --> LF | I | PR | CON | DV | OP
+P --> ID RP
+RP --> , ID RP | ε
+CO --> LF | I | PR | CON | DV | OP | WH
 CON --> IF ELSE?
 ELSE --> else CONT
 IF --> if(E RE*) CONT 
@@ -34,3 +35,6 @@ WH --> while (E RE)
 OP --> OPV OPR OPV
 OPR --> + | - | / | *
 OPV --> ID | NU
+
+
+IN PRINT WHILE IF ID LLAVEC

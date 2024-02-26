@@ -1,11 +1,12 @@
 import tkinter as tk
 from tkinter.scrolledtext import ScrolledText
 from AnalizadorLexico import analizador_lexico
+from AnalizadorSintactico import analizador_sintactico
 
 def procesar():
     entrada = texto_entrada.get("1.0", tk.END)
-    resultado = analizador_lexico(entrada)
-    
+    tokens = analizador_lexico(entrada)
+    resultado = analizador_sintactico(tokens)
     texto_salida.delete("1.0", tk.END)
     texto_salida.insert(tk.END, resultado)
 
