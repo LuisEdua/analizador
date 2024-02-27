@@ -26,5 +26,5 @@ func aux(){
     in >> d
     in >> e
     f = d + e
-    print("El resultado es " + f)
+    print("El resultado es ", f)
 }
