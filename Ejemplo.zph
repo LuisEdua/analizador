@@ -28,3 +28,7 @@ func aux(){
     f = d + e
     print("El resultado es ", f)
 }
+
+func main(){
+    print("Ingrese sus datos")
+}
