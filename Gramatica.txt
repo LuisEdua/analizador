@@ -10,16 +10,14 @@ C --> (P?) CONT
 CONT --> { CO* }
 P --> ID RP
 RP --> , ID RP | ε
-CO --> LF | I | PR | CON | DV | OP | WH
+CO --> LF | PR | CON | DV | OP | WH
 CON --> IF ELSE?
 ELSE --> else CONT
-IF --> if(E RE*) CONT 
+IF --> if(E) CONT 
 E --> EV SI EV | LF
-RE --> or E | and E
 EV --> TE | ID | NU
 SI --> == | <= | >= | !=
 LF --> NF (P?)
-I --> in >> ID
 PR --> print (D RD*) | println (D RD*)
 D --> ID | TE
 TE --> COM T* COM
@@ -31,7 +29,7 @@ V --> VA RV*
 NU --> N+ (. N+)?
 VA --> ID | TE | NU | true | false
 RV --> , VA
-WH --> while (E RE)
+WH --> while (E)
 OP --> OPV OPR OPV
 OPR --> + | - | / | *
 OPV --> ID | NU

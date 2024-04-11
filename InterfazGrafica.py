@@ -13,6 +13,8 @@ def procesar():
     texto_lexico.delete("1.0", tk.END)
     for token in tokens_lexicos:
         texto_lexico.insert(tk.END, f"{token}\n")
+        
+    
 
     # Analizador sintáctico
     resultado_sintactico = analizador_sintactico(tokens_lexicos)

@@ -2,25 +2,54 @@ func main(){
     a, b, c = 0, "", false
     print("Ingrese sus datos")
     in >> a
+    print(a)
     if(a == 1){
         println("Ingreso la opcion 1")
     } else {
         if(a == 2){
             while(c == false){
-                aux()
                 print("Desea terminar la ejecucion escriba si o no")
                 in >> b
                 if(b == "si"){
-                    c = true
+                    in >> c
                 }
             }
         } else {
             print("Opcion no valida")
         }
     }
+    d, e, f = 0.0, 0.0, 0.0
+    in >> d
+    in >> e
+    f = d + e
 }
 
-func aux(){
+func main(){
+    a, b, c = 0, "", false
+    print("Ingrese sus datos")
+    in >> a
+    print(a)
+    if(a == 1){
+        println("Ingreso la opcion 1")
+    } else {
+        if(a == 2){
+            while(c == false){
+                aux(a)
+                print("Desea terminar la ejecucion escriba si o no")
+                in >> b
+                if(b == "si"){
+                    in >> c
+                }
+            }
+        } else {
+            print("Opcion no valida")
+        }
+    }
+    println("Fin de la ejecucion")
+}
+
+func aux(a){
+    print(a)
     d, e, f = 0.0, 0.0, 0.0
     println("Ingrese 2 valores")
     in >> d
@@ -29,6 +58,31 @@ func aux(){
     print("El resultado es ", f)
 }
 
+func aux(a){
+    print(a)
+}
+
 func main(){
+    a = "hola"
     print("Ingrese sus datos")
+    aux(a)
+}
+
+func main(){
+    a, b, c = 0, "", false
+    print("Ingrese sus datos")
+    in >> a
+    print(a)
+    if(a == 1){
+        println("Ingreso la opcion 1")
+    } else {
+        if(a == 2){
+            while(c == false){
+                print("llego aca")
+            }
+        } else {
+            print("Opcion no valida")
+        }
+    }
+    println("Fin de la ejecucion")
 }
