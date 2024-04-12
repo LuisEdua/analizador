@@ -7,12 +7,9 @@ func main(){
         println("Ingreso la opcion 1")
     } else {
         if(a == 2){
-            while(c == false){
+            while(a == 2){
                 print("Desea terminar la ejecucion escriba si o no")
-                in >> b
-                if(b == "si"){
-                    in >> c
-                }
+                in >> a
             }
         } else {
             print("Opcion no valida")
@@ -21,7 +18,8 @@ func main(){
     d, e, f = 0.0, 0.0, 0.0
     in >> d
     in >> e
-    f = d + e
+    f = d + e * 25
+    print(f)
 }
 
 func main(){
@@ -85,4 +83,21 @@ func main(){
         }
     }
     println("Fin de la ejecucion")
+}
+
+func main(){
+    aux(a, b)
+}
+
+func aux(a, b){
+    print("Hola mundo")
+}
+
+func main(){
+    print("Hola ", d)
+    d = "mundo"
+}
+
+func aux(){
+    print("Hola mundo")
 }

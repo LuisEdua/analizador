@@ -33,6 +33,3 @@ WH --> while (E)
 OP --> OPV OPR OPV
 OPR --> + | - | / | *
 OPV --> ID | NU
-
-
-IN PRINT WHILE IF ID LLAVEC

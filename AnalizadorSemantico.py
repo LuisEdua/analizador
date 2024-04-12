@@ -358,4 +358,3 @@ def analizador_semantico(tokens):
                         
     return salida
         
-    return [functions, variables]
